@@ -21,6 +21,11 @@ const favoritesSlice = createSlice({
     addFavorite: (state, action: PayloadAction<FavoriteProduct>) => {
       state.favorites.push(action.payload);
     },
+    deleteFavorite: (state, action: PayloadAction<FavoriteProduct>) => {
+      state.favorites = state.favorites.filter(
+        (product) => product.name !== action.payload.name,
+      );
+    },
   },
 });
 
@@ -33,4 +38,5 @@ export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {favorites: FavoritesState}
 export type AppDispatch = typeof store.dispatch;
 export const { addFavorite } = favoritesSlice.actions;
+export const { deleteFavorite } = favoritesSlice.actions;
 export default store;

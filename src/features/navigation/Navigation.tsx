@@ -5,7 +5,9 @@ const Navigation = (): JSX.Element => {
   return (
     <div className="flex items-center justify-between px-5">
       <nav className="basis-19">
-        <Button>home</Button>
+        <Link to="/">
+          <Button>Home</Button>
+        </Link>
         <Button>products</Button>
         <Button>profile</Button>
       </nav>
