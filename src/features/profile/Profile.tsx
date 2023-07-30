@@ -1,7 +1,7 @@
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React from 'react';
 
-import Loading from '../components/partials/Loading';
+import Loading from '../../common/generic/Loading';
 
 const Profile: React.FC = () => {
   const { user, isAuthenticated, isLoading } = useAuth0();
