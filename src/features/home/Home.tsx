@@ -5,10 +5,13 @@ import Bestsellers from '@/features/home/Bestsellers';
 import NewCollection from './NewCollection';
 import Footer from '@/features/navigation/Footer';
 
+/**
+ * Renders the home page of the ecommerce website.
+ * Includes the header, hero section, bestsellers section, new collection section, and footer.
+ */
 const Home: React.FC = () => {
   return (
     <>
-      {/* <div className="absolute left-0 top-0 -z-10 h-screen w-full bg-red-200"></div> */}
       <div className="">
         <Header />
         <Hero

@@ -1,5 +1,3 @@
-// /features/favorites/types.ts
-
 // Define the type for the product data used in the favorites feature
 export interface FavoriteProduct {
   name: string;

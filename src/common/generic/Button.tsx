@@ -4,6 +4,10 @@ type ButtonProps = {
   children: string;
 };
 
+/**
+ * A reusable button component with hover and pressed animations.
+ * @param children The text to display inside the button.
+ */
 const Button = ({ children, ...props }: ButtonProps) => {
   const buttonVariants = {
     rest: {

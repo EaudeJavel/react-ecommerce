@@ -1,3 +1,9 @@
+/**
+ * The root reducer for the Redux store.
+ * Combines all reducers into a single reducer function.
+ * @module RootReducer
+ */
+
 import { combineReducers } from 'redux';
 import favoritesReducer from '../features/favorites/reducer';
 

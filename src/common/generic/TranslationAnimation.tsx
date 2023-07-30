@@ -1,3 +1,7 @@
+/**
+ * A component that creates a translation animation effect for a given string content.
+ * @param content The string content to be animated.
+ */
 import React, { useRef, useLayoutEffect, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 
@@ -9,8 +13,6 @@ const TranslationAnimation: React.FC<TranslationAnimationProps> = ({
   content,
 }) => {
   const elements = content.length;
-  console.log(content);
-  console.log(elements);
   const repeatCount = Math.ceil(window.innerWidth / elements);
   const elementRef = useRef<HTMLSpanElement>(null);
   const [elementWidth, setElementWidth] = useState(0);

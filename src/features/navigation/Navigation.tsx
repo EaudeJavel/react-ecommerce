@@ -1,6 +1,10 @@
 import Button from '../../common/generic/Button';
 import { Link } from 'react-router-dom';
 
+/**
+ * Navigation component that displays a header with navigation links.
+ * @returns {JSX.Element} JSX.Element
+ */
 const Navigation = (): JSX.Element => {
   return (
     <div className="flex items-center justify-between px-5">

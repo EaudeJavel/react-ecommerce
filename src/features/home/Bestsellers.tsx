@@ -2,6 +2,13 @@ import React from 'react';
 import Button from '../../common/generic/Button';
 import Spacer from '../../common/generic/Spacer';
 
+/**
+ * A component that displays a section with a three-part design, with the first one being a 66%/33% split of two divs, and the second one is under the first one with a width of 100%.
+ *
+ * @param {string} content - The content to display in the left div.
+ * @param {string} btnContent - The content to display in the button in the right div.
+ * @param {string} backgroundImage - The URL of the background image to display in the section.
+ */
 interface BestsellersProps {
   content: string;
   backgroundImage?: string;
@@ -14,7 +21,6 @@ const Bestsellers: React.FC<BestsellersProps> = ({
   // backgroundImage,
 }) => {
   return (
-    // create a three part design, with the first one being a 66%/33% split of two divs, and the second one is under the first one with a width of 100%
     <section className="px-5">
       <Spacer />
       <div className="flex h-80 items-center justify-center">

@@ -1,3 +1,9 @@
+/**
+ * This component displays the user's profile information if they are authenticated,
+ * otherwise it displays a message indicating that the user is not logged in.
+ * It uses the useAuth0 hook from the @auth0/auth0-react library to retrieve the user's information.
+ * @returns A React functional component that displays the user's profile information or a message indicating that the user is not logged in.
+ */
 import { useAuth0, withAuthenticationRequired } from '@auth0/auth0-react';
 import React from 'react';
 

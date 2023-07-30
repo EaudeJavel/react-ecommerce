@@ -1,3 +1,10 @@
+/**
+ * This file exports a Redux store that manages the user's favorite products.
+ * It uses the `configureStore` and `createSlice` functions from the `@reduxjs/toolkit` package.
+ * The store contains a `favorites` slice that has two reducers: `addFavorite` and `deleteFavorite`.
+ * The `addFavorite` reducer adds a new favorite product to the state, while the `deleteFavorite` reducer removes a favorite product from the state.
+ * The `RootState` and `AppDispatch` types are inferred from the store itself.
+ */
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface FavoriteProduct {

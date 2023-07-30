@@ -1,8 +1,10 @@
 import type React from 'react';
-// import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFavorite } from '@/app/store';
 
+/**
+ * Represents the data of a product.
+ */
 export interface ProductData {
   id: number;
   name: string;
@@ -12,9 +14,18 @@ export interface ProductData {
 
 interface ProductProps extends ProductData {}
 
+/**
+ * Represents a product component.
+ * @param name - The name of the product.
+ * @param price - The price of the product.
+ * @param imageSrc - The image source of the product.
+ */
 const Product: React.FC<ProductProps> = ({ name, price, imageSrc }) => {
   const dispatch = useDispatch();
 
+  /**
+   * Handles adding the product to favorites.
+   */
   const handleAddToFavs = () => {
     const product = { name, price, imageSrc };
     dispatch(addFavorite(product));

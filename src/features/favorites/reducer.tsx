@@ -6,10 +6,19 @@ import {
 } from './actions';
 import { FavoritesState } from './types';
 
+/**
+ * The initial state of the favorites reducer.
+ */
 const initialState: FavoritesState = {
   favorites: [],
 };
 
+/**
+ * The favorites reducer function.
+ * @param state The current state of the reducer.
+ * @param action The action to be performed on the state.
+ * @returns The new state of the reducer.
+ */
 const favoritesReducer = (
   state = initialState,
   action: AddToFavoritesAction | RemoveFromFavoritesAction,

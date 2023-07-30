@@ -1,3 +1,10 @@
+/**
+ * This is the main component of the application.
+ * It renders the Router component from react-router-dom and wraps it with the Provider component from react-redux.
+ * The Suspense component is used to show a fallback component while the lazy-loaded components are being loaded.
+ * The AnimatedRoutes component is used to define the routes of the application.
+ * The commented out Authentification component is used to handle authentication with Auth0.
+ */
 import { ReactElement, Suspense, lazy } from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';

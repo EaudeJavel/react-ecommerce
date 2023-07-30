@@ -4,6 +4,11 @@ import { FavoritesState, FavoriteProduct } from './types';
 import { deleteFavorite } from '@/app/store';
 import Header from '../navigation/Header';
 
+/**
+ * FavoritesList component displays a list of favorite products and allows the user to remove them.
+ * @returns a React component that displays a list of favorite products and allows the user to remove them.
+ */
+
 const FavoritesList = () => {
   const favorites = useSelector((state: FavoritesState) => state.favorites);
   const dispatch = useDispatch();

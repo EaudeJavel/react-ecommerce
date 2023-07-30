@@ -1,6 +1,13 @@
 import React from 'react';
 import Button from '../../common/generic/Button';
 
+/**
+ * A component that displays a hero section with a title, subtitle, background image, and a button.
+ * @param title - The title to display in the hero section.
+ * @param subtitle - The subtitle to display in the hero section.
+ * @param backgroundImage - The URL of the background image to display in the hero section.
+ * @param btnContent - The content to display in the button.
+ */
 interface HeroProps {
   title: string;
   subtitle: string;
