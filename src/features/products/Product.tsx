@@ -1,38 +1,40 @@
 import type React from 'react';
-import { useDispatch } from 'react-redux';
-import { addFavorite } from '@/app/store';
-
-/**
- * Represents the data of a product.
- */
-export interface ProductData {
-  id: number;
-  name: string;
-  price: number;
-  imageSrc: string;
-}
-
-interface ProductProps extends ProductData {}
-
+import { useDispatch, useSelector } from 'react-redux';
+import { addFavorite, deleteFavorite } from '@/app/store';
+import { ProductData } from './types';
 /**
  * Represents a product component.
+ * @param id - The id of the product.
  * @param name - The name of the product.
  * @param price - The price of the product.
  * @param imageSrc - The image source of the product.
+ * @param isFavorite - The boolean value of the product.
  */
-const Product: React.FC<ProductProps> = ({ name, price, imageSrc }) => {
+const Product: React.FC<ProductData> = ({
+  id,
+  name,
+  price,
+  imageSrc,
+  isFavorite,
+}) => {
+  const favorites = useSelector((state: ProductData) => state.name);
   const dispatch = useDispatch();
 
   /**
    * Handles adding the product to favorites.
    */
   const handleAddToFavs = () => {
-    const product = { name, price, imageSrc };
-    dispatch(addFavorite(product));
-  };
+    const product = { id, name, price, imageSrc, isFavorite };
 
+    if (favorites) {
+      dispatch(deleteFavorite(product));
+    } else {
+      dispatch(addFavorite(product));
+    }
+  };
   return (
     <div
+      key={id}
       className="relative border border-gray-900 p-4"
       style={{
         backgroundImage: `url(${imageSrc})`,
@@ -51,7 +53,7 @@ const Product: React.FC<ProductProps> = ({ name, price, imageSrc }) => {
           onClick={handleAddToFavs}
           className="flex h-14 items-center justify-center bg-blue-500 font-bold text-white hover:bg-blue-700"
         >
-          add to favs &lt;3
+          {isFavorite ? 'Remove from favorites' : 'Add to favorites'}
         </button>
       </div>
       <div className="absolute bottom-0 left-0 w-full">

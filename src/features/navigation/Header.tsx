@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 const Header: React.FC = () => {
   return (
     <div>
-      <TranslationAnimation content=" free shipping over 50€ /" />
+      <TranslationAnimation content="free shipping over 50€ /" />
       <Navigation />
     </div>
   );

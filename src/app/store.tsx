@@ -6,33 +6,33 @@
  * The `RootState` and `AppDispatch` types are inferred from the store itself.
  */
 import { configureStore, createSlice, PayloadAction } from '@reduxjs/toolkit';
-
-interface FavoriteProduct {
-  name: string;
-  price: number;
-  imageSrc: string;
-}
-
-interface FavoritesState {
-  favorites: FavoriteProduct[];
-}
-
-const initialState: FavoritesState = {
-  favorites: [],
-};
+import { ProductData, initialState } from '@/features/products/types';
 
 const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    addFavorite: (state, action: PayloadAction<FavoriteProduct>) => {
+    addFavorite: (state, action: PayloadAction<ProductData>) => {
       state.favorites.push(action.payload);
     },
-    deleteFavorite: (state, action: PayloadAction<FavoriteProduct>) => {
+    deleteFavorite: (state, action: PayloadAction<ProductData>) => {
       state.favorites = state.favorites.filter(
         (product) => product.name !== action.payload.name,
       );
     },
+    // incrementFavoritesCount: (
+    //   state,
+    //   action: PayloadAction<FavoriteProduct>,
+    // ) => {
+    //   const product = state.favorites.find(
+    //     (product) => product.name === action.payload.name,
+    //   );
+    //   if (product) {
+    //     product.favoritesCount = product.favoritesCount
+    //       ? product.favoritesCount + 1
+    //       : 1;
+    //   }
+    // },
   },
 });
 
@@ -46,4 +46,5 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const { addFavorite } = favoritesSlice.actions;
 export const { deleteFavorite } = favoritesSlice.actions;
+// export const { incrementFavoritesCount } = favoritesSlice.actions;
 export default store;

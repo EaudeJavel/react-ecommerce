@@ -14,7 +14,7 @@ import store from './store';
 // import Logout from '@/components/Logout';
 
 const Home = lazy(() => import('@/features/home/Home'));
-const Favorites = lazy(() => import('@/features/favorites/Favs'));
+const Favorites = lazy(() => import('@/features/products/favorites/Favs'));
 // const Products = lazy(() => import('@/features/products/Products'));
 const Profile = lazy(() => import('@/features/profile/Profile'));
 

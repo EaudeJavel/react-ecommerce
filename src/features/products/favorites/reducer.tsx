@@ -3,14 +3,17 @@ import {
   AddToFavoritesAction,
   REMOVE_FROM_FAVORITES,
   RemoveFromFavoritesAction,
+  INCREMENT_FAVORITES_COUNT,
+  IncrementFavoritesCountAction,
 } from './actions';
-import { FavoritesState } from './types';
+import { FavoritesState } from '../types';
 
 /**
  * The initial state of the favorites reducer.
  */
 const initialState: FavoritesState = {
   favorites: [],
+  favoritesCount: {},
 };
 
 /**
@@ -21,7 +24,10 @@ const initialState: FavoritesState = {
  */
 const favoritesReducer = (
   state = initialState,
-  action: AddToFavoritesAction | RemoveFromFavoritesAction,
+  action:
+    | AddToFavoritesAction
+    | RemoveFromFavoritesAction
+    | IncrementFavoritesCountAction,
 ): FavoritesState => {
   switch (action.type) {
     case ADD_TO_FAVORITES:
@@ -35,6 +41,15 @@ const favoritesReducer = (
         favorites: state.favorites.filter(
           (product) => product.name !== action.product.name,
         ),
+      };
+    case INCREMENT_FAVORITES_COUNT:
+      return {
+        ...state,
+        favoritesCount: {
+          ...state.favoritesCount,
+          [action.product.name]:
+            (state.favoritesCount[action.product.name] || 0) + 1,
+        },
       };
     default:
       return state;
